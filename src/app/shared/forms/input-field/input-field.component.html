@@ -1,0 +1,24 @@
+<div class="form-group fields" [ngClass]="classeCss">
+  <label [attr.for]="id" class="fields__label {{ classeCss }}__label"
+    >{{ label }} <span *ngIf="required_signal">*</span></label
+  >
+  <div class="fields__content {{ classeCss }}__content {{ readOnly() }}">
+    <input
+      *ngIf="mask"
+      class="form-control fields__input {{ classeCss }}__input"
+      [maxlength]="maxlength"
+      [placeholder]="placeholder"
+      [type]="type"
+      [id]="id"
+      [readonly]="!!isReadOnly"
+      [(ngModel)]="value"
+      [autocomplete]="autocomplete"
+      [edpMask]="mask"
+      saveMasked="{{ saveMasked }}"
+      autofocus="false"
+      (focus)="setFocus($event)"
+    />
+  </div>
+
+
+</div>

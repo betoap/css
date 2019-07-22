@@ -1,0 +1,7 @@
+<div class="check-field-container" (click)="setRadio()" [class.activated]="isChecked">
+  <div class="circle-img">
+    <svg-icon src="../../../../../assets/img/check-icon.svg"></svg-icon>
+  </div>
+  <ng-content select="[content]"></ng-content>
+</div>
+<input [id]="id" #radio class="radio-field" [checked]="isChecked" type="radio" [name]="name">

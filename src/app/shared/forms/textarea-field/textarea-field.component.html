@@ -1,0 +1,32 @@
+<div [ngClass]="classeCss">
+  <label class="textarea-container"
+    [for]="id"
+    [class.focused]="isPressing"
+    [class.readonly]="isReadOnly"
+    #txtArea>
+
+      <div class="title" [ngClass]="icon">{{label}}</div>
+      <div class="sub-title">{{subTitle}}</div>
+
+      <textarea
+        class="textarea-field"
+        rows="1"
+        cols="1"
+        [disabled]="isReadOnly"
+        [id]="id"
+        [attr.maxlength]="maxlength"
+        [name]="name"
+        [placeholder]="placeholder"
+        [required]="required"
+        [(ngModel)]="value"
+        (focus)="setFocus()"
+        (focusout)="unsetFocus()"
+        [innerHTML]="value"
+        >
+      </textarea>
+  </label>
+</div>
+
+<div class="error-box">
+  <app-error-msg [control]="control" [label]="label"></app-error-msg>
+</div>

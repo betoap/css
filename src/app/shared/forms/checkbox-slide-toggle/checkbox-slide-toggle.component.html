@@ -1,0 +1,14 @@
+
+<label [formGroup]="formGroup" *ngIf="formGroup" (click)="onClick( $event )">
+  <input
+   #input
+   type="checkbox"
+   formControlName="{{ controlName }}"
+   (change)="checkBoxChange( $event )" />
+
+  <div class="slider" #slider>
+    <div class="slider__handle" #handle ></div>
+    <div class="slider__bar inactive" #bar ></div>
+  </div>
+  <span #labelEl >{{ label }}</span>
+</label>

@@ -1,0 +1,29 @@
+<div class="checkbox row middle-md"
+  [formGroup]="formGroup"
+  (click)="onClick($event)"
+  [class.disabled]="isDisabled">
+
+  <div class="checkbox__selector-box">
+    <div class="checkbox__selector"
+      [class.active]="isActive">
+
+      <img class="checkbox__check-icon" src="../../../../../assets/img/Check.svg" alt="">
+
+      <input
+        class="checkbox__input"
+        type="checkbox"
+        [id]="id"
+        [name]="name"
+        [value]="value"
+        [checked]="isChecked"
+        [formControlName]="formControlName"
+        #checkbox/>
+
+    </div>
+    <div class="checkbox__effect"></div>
+  </div>
+
+  <label class="checkbox__label"
+    [for]="id"
+    *ngIf="label">{{ label }}</label>
+</div>

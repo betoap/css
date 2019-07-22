@@ -1,0 +1,48 @@
+<ng-container *ngIf="selectType === 'form'">
+  <div class="form-control form-control__margin">
+    <div class="fields {{ classeCss }}" [ngClass]="isReadOnly ? 'disabled' : ''">
+      <label class="fields__label {{ classeCss }}__label" for="selec-box"
+        >{{ label }} <span *ngIf="required_signal">*</span></label
+      >
+
+      <!-- Fake select - clickable -->
+      <div class="{{ classeCss }}__dropbox" (click)="onClick($event)">
+        <div class="fields__arrowIcon {{ toggleIcon }}"></div>
+      </div>
+
+      <!-- Hidden select -->
+      <select
+        class="fields__select {{ classeCss }}__select form-control"
+        id="select-box"
+      >
+        <option
+          class="fields__option {{ classeCss }}__option"
+          *ngFor="let item of items; let id = index"
+          [value]="item.value"
+          [selected]="id === setCurrent"
+        >
+          {{ item.label }}
+        </option>
+      </select>
+
+      <!-- Custom options -->
+      <div
+        class="{{ classeCss }}__optionList"
+        #dropDownList
+        *ngIf="showDropDown"
+      >
+        <ng-content></ng-content>
+        <ul class="{{ classeCss }}__optionList__ul">
+          <li
+            class="{{ classeCss }}__optionList__li"
+            *ngFor="let item of items; let id = index"
+            (click)="onClickOption(item.value, id)"
+          >
+            {{ item.label }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <app-error-msg [control]="control" [label]="label"></app-error-msg>
+  </div>
+</ng-container>

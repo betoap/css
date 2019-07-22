@@ -1,0 +1,77 @@
+@import '../../../../../assets/styles/component.scss';
+
+$svg-width: 38px;
+$svg-height: 38px;
+$svg-border: 2px;
+$svg-margin: 15px;
+
+:host {
+  cursor: pointer;
+  display: block;
+
+  .check-field-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    ::ng-deep{
+      app-input-field {
+        width: calc(100% - #{$svg-margin + $svg-width});
+
+        .error-div {
+          position: absolute;
+          top: 74px;
+          transform: translateY(-100%);
+        }
+      }
+    }
+
+    > .circle-img {
+      @include rem(width, $svg-width);
+      @include rem(height, $svg-height);
+      @include rem(margin-right, $svg-margin);
+      position: relative;
+
+      &:before {
+        content: '';
+        @include rem(width, $svg-width - $svg-border);
+        @include rem(height, $svg-height - $svg-border);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 100%;
+      }
+
+      svg-icon {
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        left: 0;
+      }
+    }
+
+    &.activated {
+      > .circle-img {
+        &:before {
+          background: $color-red;
+        }
+      }
+
+      ::ng-deep {
+        svg {
+          * {
+            color: $color-white;
+            stroke: $color-white;
+          }
+        }
+      }
+    }
+  }
+
+  .radio-field {
+    display: none;
+  }
+}
+
+

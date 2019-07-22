@@ -1,0 +1,58 @@
+@import '../../../../../assets/styles/tools/_all';
+
+
+:host {
+
+  label{
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  input {
+    display: none;
+  }
+
+  .slider {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+
+    &__bar {
+      width: 100%;
+      @include rem( min-height, 20px );
+      background: $color-status-inactive;
+      @include rem( border-radius, 100px );
+      transition-property: background;
+      transition-duration: 0.5s;
+    }
+
+    &__handle {
+      position: absolute;
+      background: white;
+      @include rem( width, 20px );
+      @include rem( height, 20px );
+      left: -1px;
+      border: 1px solid $color-black-12;
+
+      border-radius: 50%;
+      transition-property: left;
+      transition-duration: 0.5s;
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {        
+          top: 10px;        
+      } 
+  
+    }
+  }
+
+  .active {
+    background: $color-status-active;
+  }
+
+  .inactive {
+    background: $color-status-inactive;
+  }
+}

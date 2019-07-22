@@ -1,0 +1,73 @@
+@import '../../../../../assets/styles/settings/colors';
+@import '../../../../../assets/styles/tools/_all';
+@import '../../../../../assets/styles/trumps/_animated';
+
+:host{
+
+  ::-webkit-scrollbar {
+    @include rem(height, 2px);
+    @include rem(width, 2px);
+  }
+  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $btn-primary-bg-active;
+    border: 0px none #ffffff;
+    @include rem(border-radius, 50px);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: $btn-primary-bg-active;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: $btn-primary-bg-active;
+  }
+
+
+  ::-webkit-scrollbar-track {
+    background: $btn-primary-bg-hover;
+    border: 0px none #ffffff;
+    @include rem(border-radius, 50px);
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: $btn-primary-bg-hover;
+  }
+  ::-webkit-scrollbar-track:active {
+    background: $btn-primary-bg-hover;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  app-input-field{
+    z-index: 2;
+    width: 100%;
+    position: relative;
+  }
+
+  .fadeInDown, .fadeOutUp{
+    display: block !important;
+  }
+
+  .select__list{
+    background-color: #FFFFFF;
+    z-index: 1;
+    @extend .animated;
+    display: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    position: absolute;
+    @include rem(max-height, 240px);
+    width: 100%;
+    &>li{
+      @include rem(height, 40px);
+      @include rem(line-height, 40px);
+      cursor: pointer;
+      &:hover{
+        background-color: #FEFEFE;
+      }
+    }
+  }
+}

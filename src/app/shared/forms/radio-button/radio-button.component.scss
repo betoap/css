@@ -1,0 +1,81 @@
+@import '../../../../../assets/styles/settings/colors';
+@import '../../../../../assets/styles/tools/_all';
+:host {
+	.radio-button {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		input {
+			display: none;
+		}
+	}
+
+	.label-container {
+		@include rem(font-size, 16px);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		cursor: pointer;
+
+    .radio-button-selector {
+      position: relative;
+    }
+
+		.hovered-bg {
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+      position: relative;
+      z-index: 2;
+
+      &:hover {
+        &~.radio-effect {
+          @include effect-hovered();
+        }
+      }
+
+			.checkmark {
+				@include rem(width, 20px);
+				@include rem(height, 20px);
+				border: 1px solid $color-black-60;
+				border-radius: 50%;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				.checkmark-checked {
+					@include rem(width, 12px);
+					@include rem(height,12px);
+					border-radius: 50%;
+					display: none;
+					background-color: $btn-primary-bg-active;
+				}
+			}
+		}
+
+    .radio-effect {
+      @include effect-hover();
+    }
+	}
+
+	.label-container.active {
+		.hovered-bg {
+			.checkmark {
+				border: 1px solid $btn-primary-bg-active;
+
+				.checkmark-checked {
+					display: block;
+				}
+			}
+		}
+	}
+
+  label {
+    @include rem(margin-left, 10px);
+    @include rem(margin-right, 34px);
+  }
+}

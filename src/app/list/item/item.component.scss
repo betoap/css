@@ -1,0 +1,55 @@
+li{
+    padding: 0 8px;
+    margin: 2px 2px;
+    color: rgba($color: #FFFFFF, $alpha: 1.0);
+    background-color: rgba($color: #FEFEFE, $alpha: 0.4);
+    height: 25px;
+    padding-top: 8px;
+}
+
+div{
+    margin-left: 10px;
+    overflow: hidden;
+    float: left;
+    &:hover{
+        overflow: visible;
+    }
+}
+
+.name{
+    width: 70px;
+    margin-left: 0;
+}
+.type{
+    width: 60px;
+}
+.size{
+    width: 22px;
+}
+.relationship{
+    background-color: aliceblue;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    &:hover, &.active{
+      &::before {
+        background-color: green;
+      }
+    }
+    &::before {
+        position: absolute;
+        content: '';
+        background-color: red;
+        width: 80%;
+        height: 80%;
+        border-radius: 100%;
+        left: 0; 
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto; 
+    }
+}

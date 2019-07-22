@@ -1,0 +1,93 @@
+@import "./../../../../../assets/styles/tools/_all";
+@import "./../../../../../assets/styles/settings/colors";
+.textarea-container {
+    @include rem( border-radius, 8px);
+    display: block;
+    height: 254px;
+    border: 1px solid $color-black-20;
+    background-color: $color-black-08;
+    &.readonly {
+        // pointer-events: none;
+    }
+    &:not(.readonly) {
+        &:hover {
+            >.textarea-field {
+                cursor: pointer;
+                overflow: auto;
+            }
+        }
+        &.focused {
+            border: 1px solid $color-red;
+        }
+        &:hover,
+        &.focused {
+            border: 1px solid $color-black-20;
+            background-color: $color-white;
+            >.title {
+                @include rem(font-size, 16px);
+                margin: 5% 6.5% 0;
+            }
+            >.sub-title {
+                margin: 2px 1.2rem 2px 1.2rem;
+                font-size: 11px;
+                line-height: 12px;
+            }
+            >.textarea-field {
+                padding: 0 7.3% 5.5%;
+            }
+        }
+    }
+    >.sub-title {
+        margin: 2px 1.2rem 2px 1.2rem;
+        font-size: 11px;
+        line-height: 12px;
+  }
+    >.title {
+        @include rem(padding-left, 12px);
+        @include rem(font-size, 14px);
+        display: inline-block;
+        padding-left: 10%;
+        width: 93%;
+        margin: 5.5% 7% 0;
+        color: $color-black;
+        font-family: Roboto;
+        line-height: 24px;
+        &.non-icon {
+            padding-left: 0;
+        }
+        &.chat {
+            background: url("../../../../../assets/img/Chat.svg") no-repeat;
+            background-position: 0;
+        }
+        &.truck {
+            background: url("../../../../../assets/img/Truck.svg") no-repeat;
+            background-position: 0;
+        }
+    }
+    >.textarea-field {
+        @include rem(font-size,
+        11px);
+        background-color: transparent;
+        width: 100%;
+        height: 55%;
+        margin-top: 5.5%;
+        // padding: 0 9% 5.5%;
+        padding: 0 7.3% 5.5%;
+        color: $color-grey;
+        font-family: Roboto;
+        font-style: italic;
+        letter-spacing: 0.5px;
+        line-height: 17px;
+        overflow-y: scroll;
+        border: none;
+        overflow: auto;
+        outline: none;
+        box-shadow: none;
+        resize: none;
+    }
+}
+
+.error-box {
+    @include rem(margin-top,
+    5px);
+}
